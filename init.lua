@@ -98,6 +98,11 @@ require('lazy').setup({
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
+    opts = {
+      completion = {
+        autocomplete = false -- until I'm able to determine how to enable for code only
+      }
+    },
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
@@ -620,7 +625,7 @@ if vim.g.started_by_firenvim == true then
   vim.o.laststatus = 0
   vim.api.nvim_create_autocmd({'BufEnter'}, {
       pattern = "github.com_*.txt",
-      command = 'set linebreak conceallevel=0'
+      command = 'set linebreak conceallevel=0 nonu'
   })
 else
   vim.o.laststatus = 2
